@@ -1,0 +1,8 @@
+model Otp {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    otp       Int
+    userId    String   @db.ObjectId
+    createdAt DateTime @default(now())
+    expiry    DateTime
+    user      User     @relation(fields: [userId], references: [id])
+}
